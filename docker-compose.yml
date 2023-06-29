@@ -1,0 +1,9 @@
+version: "3"
+
+services:
+  person-server:
+    image: person-server-image:1.0.1
+    build: .
+    ports:
+      - "8081:8081"
+    container_name: person-server-container
