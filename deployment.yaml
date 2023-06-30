@@ -1,0 +1,59 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: person-server
+  labels:
+    app: person-server
+spec:
+  replicas: 1
+  strategy:
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 0
+  selector:
+    matchLabels:
+      app: person-server
+  template:
+    metadata:
+      labels:
+        app: person-server
+    spec:
+      containers:
+      - name: person-server
+        image: docker.io/alexeysidorov/person-server-image:1.0.3
+        resources:
+          limits:
+            cpu: 500m
+            memory: 500Mi
+          requests:
+            cpu: 500m
+            memory: 500Mi
+        ports:
+        - containerPort: 8081
+        readinessProbe:
+          failureThreshold: 3
+          successThreshold: 1
+          httpGet:
+            path: /
+            port: 8081
+          periodSeconds: 15
+          timeoutSeconds: 10
+        livenessProbe:
+          failureThreshold: 3
+          successThreshold: 1
+          httpGet:
+            path: /
+            port: 8081
+          periodSeconds: 15
+          timeoutSeconds: 10
+          initialDelaySeconds: 10
+        startupProbe:
+          failureThreshold: 3
+          successThreshold: 1
+          httpGet:
+            path: /
+            port: 8081
+          periodSeconds: 15
+          timeoutSeconds: 10
+...
