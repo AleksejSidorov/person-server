@@ -21,7 +21,7 @@ spec:
     spec:
       containers:
       - name: person-server
-        image: docker.io/alexeysidorov/person-server-image:1.0.1
+        image: docker.io/alexeysidorov/person-server-image:1.0.3
         resources:
           limits:
             cpu: 500m
@@ -31,29 +31,29 @@ spec:
             memory: 500Mi
         ports:
         - containerPort: 8081
-#        readinessProbe:
-#          failureThreshold: 3
-#          successThreshold: 1
-#          httpGet:
-#            path: /
-#            port: 8081
-#          periodSeconds: 15
-#          timeoutSeconds: 10
-#        livenessProbe:
-#          failureThreshold: 3
-#          successThreshold: 1
-#          httpGet:
-#            path: /
-#            port: 8081
-#          periodSeconds: 15
-#          timeoutSeconds: 10
-#          initialDelaySeconds: 10
-#        startupProbe:
-#          failureThreshold: 3
-#          successThreshold: 1
-#          httpGet:
-#            path: /
-#            port: 8081
-#          periodSeconds: 15
-#          timeoutSeconds: 10
+        readinessProbe:
+          failureThreshold: 3
+          successThreshold: 1
+          httpGet:
+            path: /
+            port: 8081
+          periodSeconds: 15
+          timeoutSeconds: 10
+        livenessProbe:
+          failureThreshold: 3
+          successThreshold: 1
+          httpGet:
+            path: /
+            port: 8081
+          periodSeconds: 15
+          timeoutSeconds: 10
+          initialDelaySeconds: 10
+        startupProbe:
+          failureThreshold: 3
+          successThreshold: 1
+          httpGet:
+            path: /
+            port: 8081
+          periodSeconds: 15
+          timeoutSeconds: 10
 ...
