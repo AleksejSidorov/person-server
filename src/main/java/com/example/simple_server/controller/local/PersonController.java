@@ -1,19 +1,16 @@
-package com.example.simple_server.controller;
+package com.example.simple_server.controller.local;
 
 import com.example.simple_server.entity.Person;
 import com.example.simple_server.service.PersonService;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.Map;
 
 @Tag(name = "Сервис для работы с Person")
 @RestController("person")
+@RequestMapping("person")
 @RequiredArgsConstructor
 public class PersonController {
 

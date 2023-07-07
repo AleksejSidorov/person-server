@@ -1,4 +1,4 @@
-package com.example.simple_server.controller;
+package com.example.simple_server.controller.livestatus;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
