@@ -21,7 +21,13 @@ spec:
     spec:
       containers:
       - name: person-server
-        image: docker.io/alexeysidorov/person-server-image:1.0.3
+        image: docker.io/alexeysidorov/person-server-image:1.0.4
+        env:
+          - name: REMOTE_SERVER_URL
+            valueFrom:
+              configMapKeyRef:
+                name: person-cm
+                key: remote_server_url
         resources:
           limits:
             cpu: 500m

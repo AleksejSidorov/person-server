@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: person-cm
+data:
+  # property-like keys; each key maps to a simple value
+  remote_server_url: http://remote-node-port:8082
