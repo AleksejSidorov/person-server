@@ -10,4 +10,5 @@ feign:
         loggerLevel: full
 
 service:
-  remote_server_url: localhost:8082
+#  remote_server_url: localhost:8082
+  remote_server_url: ${REMOTE_SERVER_URL:http://remote-node-port:8082}

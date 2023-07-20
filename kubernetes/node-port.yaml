@@ -10,3 +10,4 @@ spec:
     - port: 8081         # By default and for convenience, the `targetPort` is set to the same value as the `port` field.
       targetPort: 8081   # Optional field.
       nodePort: 30007
+      name: person-port
